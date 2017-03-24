@@ -1,0 +1,9 @@
+@import "../../styles/shared";
+
+.icon-svg {
+  transform-origin: center center;
+  width: $icon-size;
+  height: $icon-size;
+  transition: fill 300ms 0s ease, stroke 300ms 0s ease, transform 300ms 0s ease, opacity 300ms 0s ease;
+  fill: $white;
+}

@@ -1,0 +1,40 @@
+@import "../../styles/shared";
+
+.component-box-duck {
+  &__duck {
+    display: flex;
+    align-items: flex-end;
+    min-height: 140px;
+
+    img {
+      transition: margin-left 2s ease, margin-bottom 1s ease, width 1s ease, height 1s ease;
+    }
+
+    &.is-right {
+      img {
+        margin-left: calc(100% - 70px);
+      }
+    }
+
+    &.is-jump {
+      img {
+        margin-bottom: 100px;
+      }
+    }
+  }
+
+  &__duck-text {
+    color: $pink;
+  }
+
+  &__arrow {
+    transition: transform .5s ease;
+    &.is-right {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__direct-text {
+    animation: fade-in 2s;
+  }
+}

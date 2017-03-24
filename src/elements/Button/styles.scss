@@ -1,0 +1,22 @@
+@import "../../styles/shared";
+
+.button {
+  color: $white;
+  background-color: $green1;
+  border: solid 2px $green1;
+  width: 100%;
+  padding: 16px;
+  line-height: 20px;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, width 0.3s ease, opacity 0.3s ease;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  outline: none;
+
+  &:hover {
+    border-color: $green;
+    background-color: $green;
+  }
+}

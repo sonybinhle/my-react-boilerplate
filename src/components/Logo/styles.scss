@@ -1,0 +1,18 @@
+@import "../../styles/shared";
+
+.logo {
+  &__icon {
+    fill: $green1;
+    width: 25px;
+    height: 25px;
+    margin-right: 6px;
+  }
+
+  &__a {
+    color: $blue;
+    font-weight: 700;
+    margin: 10px 0;
+    font-size: 20px;
+    text-decoration: none;
+  }
+}

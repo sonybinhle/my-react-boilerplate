@@ -1,0 +1,21 @@
+@import "../../styles/shared";
+
+.pages-not-found {
+  &__box {
+    border: 2px solid $green1;
+    border-radius: $border-radius;
+    padding: 20px;
+    text-align: center;
+    color: $grey1;
+  }
+
+  &__error-status {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__error-msg {
+    font-size: 28px;
+    font-weight: 700;
+  }
+}

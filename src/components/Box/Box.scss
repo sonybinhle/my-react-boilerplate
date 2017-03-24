@@ -1,0 +1,30 @@
+@import "../../styles/shared";
+
+.component-box {
+  margin-bottom: 20px;
+  border-radius: $border-radius;
+  background: $white;
+  text-align: left;
+  box-shadow: 0 2px 0 rgba($black, 0.15);
+  color: $black1;
+  font-weight: 600;
+
+  &__header {
+    border-radius: $border-radius $border-radius 0 0;
+    background-color: $black2;
+    text-align: center;
+    font-weight: 600;
+    padding: 20px;
+    color: $white;
+  }
+
+  &__content {
+    padding: 20px;
+  }
+
+  &__footer {
+    padding: 20px;
+  }
+}
+
+

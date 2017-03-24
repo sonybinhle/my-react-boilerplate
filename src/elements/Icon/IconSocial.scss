@@ -1,0 +1,16 @@
+@import "../../styles/shared";
+
+.icon-social {
+  transition: background-color 200ms ease-in-out;
+  width: $icon-size;
+  height: $icon-size;
+  border-radius: 50%;
+  background-color: $black3;
+  display: inline-block;
+
+  &:hover {
+    background-color: $green1;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
