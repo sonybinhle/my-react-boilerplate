@@ -9,6 +9,10 @@
     <img src="https://david-dm.org/xeasony/my-react-boilerplate/dev-status.svg" alt="devDependency Status" />
   </a>
   
+  <a href="https://travis-ci.org/xeasony/my-react-boilerplate">
+    <img src="https://travis-ci.org/xeasony/my-react-boilerplate.svg" alt="Build Status" />
+  </a>
+  
 </div>
 
 ## Commands:
