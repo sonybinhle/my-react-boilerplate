@@ -4,6 +4,11 @@
   <a href="https://david-dm.org/xeasony/my-react-boilerplate">
     <img src="https://david-dm.org/xeasony/my-react-boilerplate.svg" alt="Dependency Status" />
   </a>
+  
+  <a href="https://david-dm.org/xeasony/my-react-boilerplate#info=devDependencies">
+    <img src="https://david-dm.org/xeasony/my-react-boilerplate/dev-status.svg" alt="devDependency Status" />
+  </a>
+  
 </div>
 
 ## Commands:
