@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -29,6 +30,17 @@ module.exports = webpackMerge(webpackBaseConfig, {
   },
   plugins: [
     extractSass,
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        unused: true,
+        dead_code: true,
+        warnings: false,
+      },
+      comments: false,
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
     new ManifestPlugin({
       fileName: config.MANIFEST,
       publicPath: config.assetPath,

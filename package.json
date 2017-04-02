@@ -15,7 +15,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "NODE_ENV=test jest",
     "test:cov": "rimraf ./coverage && npm run test -- --coverage",
-    "build": "npm run clean && webpack -p --config webpack/webpack.prod.js",
+    "build": "npm run clean && webpack --config webpack/webpack.prod.js",
     "dev": "node server --use-webpack",
     "start": "npm run build && node server"
   },
