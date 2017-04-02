@@ -24,7 +24,7 @@ indexController.get('*', (req, res) => {
             
             <meta name="viewport" content="width=device-width, initial-scale=1">
             
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
             
             ${
               cssAssets.map(path => `<link rel="stylesheet" href="${path}">`).join('')

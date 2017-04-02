@@ -10,7 +10,9 @@ const b = bem('logo');
 export default () => (
   <div>
     <Link className={b('a').mix('flex-container align-middle')()} to="/">
-      <IconSvg icon="logo" className={b('icon')()} viewBox="0 0 32 32" />
+      <span className={b('icon')()} >
+        <IconSvg icon="logo" viewBox="0 0 1000 1000" />
+      </span>
       Xeasony
     </Link>
   </div>

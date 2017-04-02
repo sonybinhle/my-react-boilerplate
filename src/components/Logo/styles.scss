@@ -2,17 +2,24 @@
 
 .logo {
   &__icon {
-    fill: $green1;
-    width: 25px;
-    height: 25px;
     margin-right: 6px;
+    padding: 5px;
+    background-color: $blue2;
+    border-radius: $border-radius;
+    box-sizing: content-box;
+    height: 22px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
   }
 
   &__a {
-    color: $blue;
-    font-weight: 700;
+    color: $blue2;
+    font-weight: 600;
     margin: 10px 0;
-    font-size: 20px;
+    font-size: 22px;
     text-decoration: none;
   }
 }
