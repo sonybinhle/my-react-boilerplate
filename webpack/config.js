@@ -1,6 +1,11 @@
 const yargs = require('yargs');
-
 const babelConfig = require('./config-babel');
+
+const VERSION = process.env.VERSION;
+
+function getManifest(version) {
+  return `manifest${version ? `.${version}` : ''}.json`;
+}
 
 const args = yargs.options({
   'use-webpack': {
@@ -19,19 +24,18 @@ const args = yargs.options({
     type: 'object',
     default: {
       publicPath: '',
-      version: '',
     },
   },
 }).argv;
 
 const baseConfig = {
-  version: args.env.version,
+  version: VERSION,
   publicPath: args.env.publicPath,
   assetPath: `${args.env.publicPath}${args.staticPath}/`,
   BUILD: 'build',
-  MANIFEST: `manifest${args.env.version ? '.' + args.env.version : ''}.json`,
+  MANIFEST: getManifest(VERSION),
   WEBPACK_HMR: '/__webpack_hmr',
-  getManifest: function(version) { return `manifest${version ? '.' + version : ''}.json`;},
+  getManifest,
 };
 
 module.exports = Object.assign({}, babelConfig, args, baseConfig);

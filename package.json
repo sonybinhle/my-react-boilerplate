@@ -15,11 +15,11 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "NODE_ENV=test jest",
     "test:cov": "rimraf ./coverage && npm run test -- --coverage",
-    "build": "webpack --config webpack/webpack.prod.js",
-    "build-vio": "webpack --config webpack/webpack.prod.js --env.version=vio  --env.publicPath=",
-    "build-all": "npm run clean && npm run build && npm run build-vio",
+    "build:main": "webpack --config webpack/webpack.prod.js",
+    "build:vio": "VERSION=vio webpack --config webpack/webpack.prod.js",
+    "build": "npm run clean && npm run build:main && npm run build:vio",
     "dev": "node server --use-webpack",
-    "start": "npm run build && node server"
+    "start": "node server"
   },
   "pre-commit": [
   ],

@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import bem from 'bem-cn';
 
-import { IconSvg } from '../../elements';
-import './styles.scss';
+import { IconSvg } from '../../../../elements/index';
+import '../../../../components/Logo/styles.scss';
 
 const b = bem('logo');
-
-console.log('sdfsdf');
 
 export default () => (
   <div>
@@ -15,7 +13,7 @@ export default () => (
       <span className={b('icon')()} >
         <IconSvg icon="logo" viewBox="0 0 1000 1000" />
       </span>
-      He He d
+      He He deee sss ss
     </Link>
   </div>
 );

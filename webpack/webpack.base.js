@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const config = require('./config');
 const path = require('path');
+const version = require('../src/versions');
 
 module.exports = {
   target: 'web',
@@ -32,13 +33,12 @@ module.exports = {
     new webpack.DefinePlugin({
       __PUBLIC_PATH__: JSON.stringify(config.publicPath),
     }),
-    new webpack.NormalModuleReplacementPlugin(/.*/, function(resource) {
-      if (config.version) {
-        if (/Logo$/.test(resource.request)) {
-          console.log(resource.request);
-          resource.request = resource.request.replace(/Logo$/g, 'Logo/vio.js');
-        }
+    new webpack.NormalModuleReplacementPlugin(/.*/, (resource) => {
+      const replacedPath = version.getReplacedPath(resource.request, resource.context);
+
+      if (replacedPath) {
+        resource.request = replacedPath; // eslint-disable-line
       }
-    })
+    }),
   ],
 };

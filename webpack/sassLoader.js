@@ -1,18 +1,12 @@
-const config = require('./config');
+const version = require('../src/versions');
 
 module.exports = {
   loader: 'sass-loader',
   options: {
-    importer: function sassImporter(url, prev, done) {
+    importer: function sassImporter(url, prev) {
+      const replacedPath = version.getReplacedPath(url, prev);
 
-      if (config.version) {
-        if (url.indexOf('colors') >= 0) {
-          url = url.replace('colors', 'colors.vio');
-          return {file: url};
-        }
-      }
-
-      return null;
+      return replacedPath ? { file: replacedPath } : null;
     },
   },
 };

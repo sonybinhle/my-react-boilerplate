@@ -1,0 +1,6 @@
+{
+  "map": {
+    "src/styles/colors": "versions/vio/styles/colors",
+    "src/components/Logo$": "versions/vio/components/Logo"
+  }
+}
