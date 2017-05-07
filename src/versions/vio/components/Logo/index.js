@@ -13,7 +13,7 @@ export default () => (
       <span className={b('icon')()} >
         <IconSvg icon="logo" viewBox="0 0 1000 1000" />
       </span>
-      He He deee sss ss
+      Glorian
     </Link>
   </div>
 );
