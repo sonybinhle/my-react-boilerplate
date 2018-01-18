@@ -7,7 +7,7 @@ const BABEL_MODULE = Object.assign({}, BABEL, {
   presets: [
     'latest',
     'react',
-    'stage-0',
+    'stage-2',
   ],
 });
 

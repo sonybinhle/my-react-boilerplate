@@ -11,9 +11,9 @@ function Box({
 }) {
   return (
     <div className={b.mix(className)()}>
-      {header && <div className={b('header')}>{header}</div>}
-      {content && <div className={b('content')}>{content}</div>}
-      {footer && <div className={b('footer')}>{footer}</div>}
+      {header && <div className={b('header')()}>{header}</div>}
+      {content && <div className={b('content')()}>{content}</div>}
+      {footer && <div className={b('footer')()}>{footer}</div>}
     </div>
   );
 }

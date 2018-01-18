@@ -21,18 +21,18 @@ export function getBoxStyles(size) {
 
 const Square = ({ sizeType, activeSize, setSize }) => (
   <button
-    className={b('square')({ size: sizeType }).is({ active: SIZES[sizeType] === activeSize })}
+    className={b('square')({ size: sizeType }).is({ active: SIZES[sizeType] === activeSize })()}
     style={getBoxStyles(SIZES[sizeType])}
     onClick={() => setSize(SIZES[sizeType])}
   />
 );
 
 const BoxHeader = () => (
-  <span>Duck <strong className={b('configuration-text')}>Configuration</strong></span>
+  <span>Duck <strong className={b('configuration-text')()}>Configuration</strong></span>
 );
 
 const BoxContent = ({ activeSize, setSize }) => (
-  <div className={b('squares')} >
+  <div className={b('squares')()} >
     {
       Object.keys(SIZES).map(sizeType =>
         <Square key={sizeType} sizeType={sizeType} setSize={setSize} activeSize={activeSize} />)

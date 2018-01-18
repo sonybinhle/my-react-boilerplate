@@ -10,9 +10,9 @@ export default () => (
   <MainLayout>
     <div className="row">
       <div className="columns">
-        <div className={b('box')}>
-          <p className={b('error-status')}>404: Page not found</p>
-          <p className={b('error-msg')}>Oops, Something went missing</p>
+        <div className={b('box')()}>
+          <p className={b('error-status')()}>404: Page not found</p>
+          <p className={b('error-msg')()}>Oops, Something went missing</p>
         </div>
       </div>
     </div>
