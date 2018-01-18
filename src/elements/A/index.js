@@ -1,13 +1,15 @@
-import React, { PropTypes } from 'react';
+import React from 'react'; import PropTypes from 'prop-types';
 import bem from 'bem-cn';
 
 import './styles.scss';
 
 const b = bem('a');
 
-const A = ({ children, className, newTab, ...props }) => (
+const A = ({
+  children, className, newTab, ...props
+}) => (
   <a
-    className={b.mix(className)}
+    className={b.mix(className)()}
     target={newTab ? '_blank' : '_self'}
     {...props}
   >

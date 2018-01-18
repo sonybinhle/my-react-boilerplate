@@ -3,8 +3,8 @@ import webpack from 'webpack';
 import devMiddleware from 'webpack-dev-middleware';
 import hotMiddleware from 'webpack-hot-middleware';
 
-import webpackDevConfig from '../../webpack/webpack.dev';
-import config from '../../webpack/config';
+import webpackDevConfig from '../../tools/webpack.dev';
+import config from '../../tools/config';
 
 const compiler = webpack(webpackDevConfig);
 

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react'; import PropTypes from 'prop-types';
 import bem from 'bem-cn';
 
 import Box from './Box';
@@ -27,7 +27,9 @@ const BoxDuckFooter = ({ right, onClick }) => (
   </Button>
 );
 
-function BoxDuck({ right, jump, size, onClick }) {
+function BoxDuck({
+  right, jump, size, onClick,
+}) {
   return (
     <Box
       header={<BoxDuckHeader />}

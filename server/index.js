@@ -1,4 +1,4 @@
-const babelConfig = require('../webpack/config').BABEL_MODULE;
+const babelConfig = require('../tools/config').BABEL_MODULE;
 
 require('babel-register')(babelConfig);
 require('./server');
