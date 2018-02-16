@@ -1,16 +1,16 @@
 <div align="center"><strong>My React Boilerplate</strong></div>
 
 <div align="center">
-  <a href="https://david-dm.org/xeasony/my-react-boilerplate">
-    <img src="https://david-dm.org/xeasony/my-react-boilerplate.svg" alt="Dependency Status" />
+  <a href="https://david-dm.org/sonybinhle/my-react-boilerplate">
+    <img src="https://david-dm.org/sonybinhle/my-react-boilerplate.svg" alt="Dependency Status" />
   </a>
 
-  <a href="https://david-dm.org/xeasony/my-react-boilerplate#info=devDependencies">
-    <img src="https://david-dm.org/xeasony/my-react-boilerplate/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/sonybinhle/my-react-boilerplate#info=devDependencies">
+    <img src="https://david-dm.org/sonybinhle/my-react-boilerplate/dev-status.svg" alt="devDependency Status" />
   </a>
 
-  <a href="https://travis-ci.org/xeasony/my-react-boilerplate">
-    <img src="https://travis-ci.org/xeasony/my-react-boilerplate.svg" alt="Build Status" />
+  <a href="https://travis-ci.org/sonybinhle/my-react-boilerplate">
+    <img src="https://travis-ci.org/sonybinhle/my-react-boilerplate.svg" alt="Build Status" />
   </a>
 
 </div>
