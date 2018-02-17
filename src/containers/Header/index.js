@@ -6,7 +6,7 @@ import './header.scss';
 const b = bem('header');
 
 export default () => (
-  <header className={b.mix('row')}>
+  <header className={b.mix('row')()}>
     <div className="columns">Welcome</div>
   </header>
 );

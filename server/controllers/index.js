@@ -1,5 +1,5 @@
 import express from 'express';
-import config from '../../webpack/config';
+import config from '../../tools/config';
 
 const indexController = express.Router();
 
@@ -26,15 +26,11 @@ indexController.get('*', (req, res) => {
             
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
             
-            ${
-              cssAssets.map(path => `<link rel="stylesheet" href="${path}">`).join('')
-            }
+            ${cssAssets.map(path => `<link rel="stylesheet" href="${path}">`).join('')}
         </head>
         <body>
             <div id="root"></div>
-            ${
-              jsAssets.map(path => `<script src="${path}"></script>`).join('')
-            }
+            ${jsAssets.map(path => `<script src="${path}"></script>`).join('')}
         </body>
     </html>`;
 
