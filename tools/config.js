@@ -1,7 +1,5 @@
 const yargs = require('yargs');
 
-const babelConfig = require('./config-babel');
-
 const args = yargs.options({
   'use-webpack': {
     type: 'boolean',
@@ -31,4 +29,4 @@ const baseConfig = {
   WEBPACK_HMR: '/__webpack_hmr',
 };
 
-module.exports = Object.assign({}, babelConfig, args, baseConfig);
+module.exports = Object.assign({}, args, baseConfig);
