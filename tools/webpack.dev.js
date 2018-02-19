@@ -26,11 +26,12 @@ module.exports = webpackMerge(webpackBaseConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
   devServer: {
+    publicPath: config.assetPath,
     host: 'localhost',
     port: config.port,
     hot: true,
-    noInfo: false,
-    stats: 'minimal',
     historyApiFallback: true,
+    serverSideRender: true,
+    stats: 'minimal',
   },
 });

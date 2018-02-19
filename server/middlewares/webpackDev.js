@@ -8,11 +8,7 @@ import config from '../../tools/config';
 
 const compiler = webpack(webpackDevConfig);
 
-export const webpackDevMiddleware = devMiddleware(compiler, {
-  publicPath: config.assetPath,
-  serverSideRender: true,
-  stats: 'minimal',
-});
+export const webpackDevMiddleware = devMiddleware(compiler, webpackDevConfig.devServer);
 
 export const webpackHotMiddleware = hotMiddleware(compiler, {
   path: config.WEBPACK_HMR,
