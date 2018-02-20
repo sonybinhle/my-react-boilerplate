@@ -12,6 +12,10 @@
   <a href="https://travis-ci.org/sonybinhle/my-react-boilerplate">
     <img src="https://travis-ci.org/sonybinhle/my-react-boilerplate.svg" alt="Build Status" />
   </a>
+  
+  <a href='https://coveralls.io/github/sonybinhle/my-react-boilerplate?branch=master'>
+    <img src='https://coveralls.io/repos/github/sonybinhle/my-react-boilerplate/badge.svg?branch=master' alt='Coverage Status' />
+   </a>
 
 </div>
 
