@@ -11,8 +11,8 @@
   },
   "scripts": {
     "clean": "rimraf ./build",
-    "lint": "eslint server src tools",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "npm run lint:js",
+    "lint:js": "eslint server src tools --fix",
     "test": "NODE_ENV=test jest",
     "test:cov": "rimraf ./coverage && npm run test -- --coverage",
     "build": "npm run clean && webpack --config tools/webpack.prod.js",
