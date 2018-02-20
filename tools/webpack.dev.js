@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const path = require('path');
@@ -34,11 +33,12 @@ module.exports = webpackMerge(webpackBaseConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
   ],
   devServer: {
+    publicPath: config.assetPath,
     host: 'localhost',
     port: config.port,
     hot: true,
-    noInfo: false,
-    stats: 'minimal',
     historyApiFallback: true,
+    serverSideRender: true,
+    stats: 'minimal',
   },
 });

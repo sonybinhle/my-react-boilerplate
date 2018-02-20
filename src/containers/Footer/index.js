@@ -14,18 +14,18 @@ export default () => (
         <Logo />
       </div>
       <div className="column">
-        <ul className={b('icon-socials')}>
-          <li className={b('icon-social')}>
+        <ul className={b('icon-socials')()}>
+          <li className={b('icon-social')()}>
             <A href="https://twitter.com" newTab>
               <IconSocial icon="twitter" />
             </A>
           </li>
-          <li className={b('icon-social')}>
+          <li className={b('icon-social')()}>
             <A href="https://facebook.com" newTab>
               <IconSocial icon="facebook" />
             </A>
           </li>
-          <li className={b('icon-social')}>
+          <li className={b('icon-social')()}>
             <A href="https://www.linkedin.com" newTab>
               <IconSocial icon="linked-in" />
             </A>

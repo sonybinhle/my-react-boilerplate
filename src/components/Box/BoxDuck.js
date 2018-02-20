@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react'; import PropTypes from 'prop-types';
 import bem from 'bem-cn';
 
 import Box from './Box';
@@ -10,24 +10,26 @@ import duck from './duck.jpg';
 const b = bem('component-box-duck');
 
 const BoxDuckHeader = () => (
-  <span>This is the box of <strong className={b('duck-text')}>Duck</strong></span>
+  <span>This is the box of <strong className={b('duck-text')()}>Duck</strong></span>
 );
 
 const BoxDuckContent = ({ right, jump, size }) => (
-  <div className={b('duck').is({ right, jump })}>
+  <div className={b('duck').is({ right, jump })()}>
     <img src={duck} style={getBoxStyles(size)} alt="a Duck" />
   </div>
 );
 
 const BoxDuckFooter = ({ right, onClick }) => (
   <Button onClick={onClick}>
-    Move <strong className={b('duck-text')}>Duck</strong> to
-    <span key={right} className={b('direct-text')}> {right ? 'left' : 'right'} </span>
+    Move <strong className={b('duck-text')()}>Duck</strong> to
+    <span key={right} className={b('direct-text')()}> {right ? 'left' : 'right'} </span>
     <Fa name="arrow-right" className={b('arrow').is({ right })()} />
   </Button>
 );
 
-function BoxDuck({ right, jump, size, onClick }) {
+function BoxDuck({
+  right, jump, size, onClick,
+}) {
   return (
     <Box
       header={<BoxDuckHeader />}

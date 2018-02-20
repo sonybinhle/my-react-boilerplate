@@ -4,7 +4,7 @@ import compression from 'compression';
 import chalk from 'chalk';
 import favicon from 'serve-favicon';
 
-import config from '../../webpack/config';
+import config from '../../tools/config';
 
 export default function (app) {
   app.use(compression());

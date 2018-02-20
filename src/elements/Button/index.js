@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react'; import PropTypes from 'prop-types';
 import bem from 'bem-cn';
 
 import './styles.scss';
@@ -6,7 +6,7 @@ import './styles.scss';
 const b = bem('button');
 
 const Button = ({ children, className, ...props }) => (
-  <button className={b.mix(className)} {...props}>
+  <button className={b.mix(className)()} {...props}>
     {children}
   </button>
 );

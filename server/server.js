@@ -1,7 +1,7 @@
 import express from 'express';
 import chalk from 'chalk';
 
-import config from '../webpack/config';
+import config from '../tools/config';
 import applyMiddlewares from './middlewares';
 import apis from './apis';
 import controllers from './controllers';

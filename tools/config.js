@@ -1,5 +1,4 @@
 const yargs = require('yargs');
-const babelConfig = require('./config-babel');
 
 const VERSION = process.env.VERSION;
 
@@ -38,4 +37,4 @@ const baseConfig = {
   getManifest,
 };
 
-module.exports = Object.assign({}, babelConfig, args, baseConfig);
+module.exports = Object.assign({}, args, baseConfig);

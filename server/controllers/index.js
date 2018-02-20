@@ -1,5 +1,5 @@
 import express from 'express';
-import config from '../../webpack/config';
+import config from '../../tools/config';
 
 const indexController = express.Router();
 
@@ -28,15 +28,11 @@ indexController.get('*', (req, res) => {
             
             <meta name="viewport" content="width=device-width, initial-scale=1">
                        
-            ${
-              cssAssets.map(path => `<link rel="stylesheet" href="${path}">`).join('')
-            }
+            ${cssAssets.map(path => `<link rel="stylesheet" href="${path}">`).join('')}
         </head>
         <body>
             <div id="root"></div>
-            ${
-              jsAssets.map(path => `<script src="${path}"></script>`).join('')
-            }
+            ${jsAssets.map(path => `<script src="${path}"></script>`).join('')}
         </body>
     </html>`;
 

@@ -8,7 +8,8 @@ describe('BoxDuck', () => {
   it('should render .is-right and .is-jump classes', () => {
     const wrapper = mount(<BoxDuck right jump size={70} onClick={() => {}} />);
 
-    expect(wrapper.find('.is-right').length).toBe(2);
+    expect(wrapper.find('i.is-right').length).toBe(1);
+    expect(wrapper.find('div.is-right').length).toBe(1);
     expect(wrapper.find('.is-jump').length).toBe(1);
   });
 
