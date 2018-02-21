@@ -1,13 +1,13 @@
 const webpack = require('webpack');
 const config = require('./config');
 const path = require('path');
-const version = require('../src/versions');
+const diPlugin = require('./diPlugin');
 
 module.exports = {
   target: 'web',
   entry: ['./src'],
   output: {
-    filename: `js/bundle${config.version ? '.' + config.version : ''}.[hash].js`,
+    filename: `js/bundle${config.version ? `.${config.version}` : ''}.[hash].js`,
     path: path.join(__dirname, '..', config.BUILD),
     publicPath: config.assetPath,
   },
@@ -32,12 +32,6 @@ module.exports = {
     new webpack.DefinePlugin({
       __PUBLIC_PATH__: JSON.stringify(config.publicPath),
     }),
-    new webpack.NormalModuleReplacementPlugin(/.*/, (resource) => {
-      const replacedPath = version.getReplacedPath(resource.request, resource.context);
-
-      if (replacedPath) {
-        resource.request = replacedPath; // eslint-disable-line
-      }
-    }),
+    diPlugin,
   ],
 };
