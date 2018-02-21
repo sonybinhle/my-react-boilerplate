@@ -1,6 +1,6 @@
 const yargs = require('yargs');
 
-const VERSION = process.env.VERSION;
+const { VERSION } = process.env;
 
 function getManifest(version) {
   return `manifest${version ? `.${version}` : ''}.json`;
