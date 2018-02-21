@@ -1,0 +1,6 @@
+{
+  "src/styles/colors": "versions/vio/styles/colors.scss",
+  "src/styles/variables": "versions/vio/styles/variables.scss",
+  "src/styles/app": "versions/vio/styles/app.scss",
+  "src/components/Logo$": "versions/vio/components/Logo"
+}

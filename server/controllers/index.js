@@ -10,7 +10,11 @@ indexController.get('*', (req, res) => {
     const stats = res.locals.webpackStats.toJson();
     assets = [].concat(stats.assetsByChunkName.main).map(path => `${config.assetPath}${path}`);
   } else {
-    const manifest = require(`../../${config.BUILD}/${config.MANIFEST}`); // eslint-disable-line
+    let manifest = require(`../../${config.BUILD}/${config.MANIFEST}`); // eslint-disable-line
+    if (req.query.version) {
+      manifest = require(`../../${config.BUILD}/${config.getManifest(req.query.version)}`); // eslint-disable-line
+    }
+
     assets = Object.values(manifest);
   }
 
@@ -23,9 +27,7 @@ indexController.get('*', (req, res) => {
             <title>My App</title>
             
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            
-            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
-            
+                       
             ${cssAssets.map(path => `<link rel="stylesheet" href="${path}">`).join('')}
         </head>
         <body>

@@ -4,10 +4,11 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = require('./config');
+const sassLoader = require('./sassLoader');
 const webpackBaseConfig = require('./webpack.base.js');
 
 const extractSass = new ExtractTextPlugin({
-  filename: 'css/[name].[contenthash].css',
+  filename: `css/[name]${config.version ? `.${config.version}` : ''}.[contenthash].css`,
 });
 
 module.exports = webpackMerge(webpackBaseConfig, {
@@ -20,7 +21,7 @@ module.exports = webpackMerge(webpackBaseConfig, {
         loader: extractSass.extract({
           use: [
             'css-loader',
-            'sass-loader',
+            sassLoader,
           ],
           fallback: 'style-loader',
         }),

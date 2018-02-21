@@ -15,7 +15,9 @@
     "lint:js": "eslint server src tools --fix",
     "test": "NODE_ENV=test jest",
     "test:cov": "rimraf ./coverage && npm run test -- --coverage",
-    "build": "npm run clean && webpack --config tools/webpack.prod.js",
+    "build:main": "webpack --config tools/webpack.prod.js",
+    "build:vio": "VERSION=vio webpack --config tools/webpack.prod.js",
+    "build": "npm run clean && npm run build:main && npm run build:vio",
     "dev": "node server --use-webpack",
     "start": "npm run build && node server",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
