@@ -1,5 +1,5 @@
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
 
 function normalizeContext(context) {
   const info = path.parse(context);
@@ -7,57 +7,57 @@ function normalizeContext(context) {
   return info.ext ? info.dir : context;
 }
 
-function accept(context, excludes) {
-  return !excludes.some(regex => regex.test(context));
-}
+class WebpackDI {
+  constructor(options) {
+    this.injectSource = options.source;
+    this.injectMap = options.map;
+    this.excludes = [/node_modules/].concat(options.excludes || []);
 
-const getInjectedPathFactory = (options) => {
-  const injectSource = options.source;
-  const injectMap = options.map;
-  const excludes = [/node_modules/].concat(options.excludes || []);
+    this.replaceHandler = this.replaceHandler.bind(this);
+    this.sassImporter = this.sassImporter.bind(this);
 
-  return (url, inContext) => {
-    const context = normalizeContext(inContext);
+    this.plugin = new webpack.NormalModuleReplacementPlugin(/.*/, this.replaceHandler);
+  }
 
-    if (accept(context, excludes) && accept(url, excludes)) {
-      const fullPath = path.resolve(context, url);
+  apply(compiler) {
+    this.plugin.apply(compiler);
+  }
 
-      if (fullPath) {
-        const matchedKey = Object.keys(injectMap).find(key => new RegExp(key).test(fullPath));
+  replaceHandler(resource) {
+    const injectedPath = this.getInjectedPath(resource.request, resource.context);
 
-        if (matchedKey) {
-          const newPath = path.resolve(injectSource, injectMap[matchedKey]);
+    if (injectedPath) resource.request = injectedPath; // eslint-disable-line no-param-reassign
+  }
 
-          if (newPath) {
-            return newPath;
-          }
+  isMatched(url) {
+    return !this.excludes.some(regex => regex.test(url));
+  }
 
-          throw new Error(`WebpackDI: new path is not found! ${newPath}`);
+  getInjectedPath(url, context) {
+    const fullPath = path.resolve(normalizeContext(context), url);
+
+    if (this.isMatched(url) && this.isMatched(context)) {
+      const matchedKey = Object.keys(this.injectMap).find(key => new RegExp(key).test(fullPath));
+
+      if (matchedKey) {
+        const newPath = path.resolve(this.injectSource, this.injectMap[matchedKey]);
+
+        if (newPath) {
+          return newPath;
         }
+
+        throw new Error(`WebpackDI: new path is not found! ${newPath}`);
       }
     }
 
     return null;
-  };
-};
+  }
 
-const getNormalModuleReplacementFn = getInjectedPath => (resource) => {
-  const injectedPath = getInjectedPath(resource.request, resource.context);
-
-  if (injectedPath) resource.request = injectedPath; // eslint-disable-line no-param-reassign
-};
-
-function WepackDI(options) {
-  const getInjectedPath = getInjectedPathFactory(options);
-  const instance = new webpack.NormalModuleReplacementPlugin(/.*/, getNormalModuleReplacementFn(getInjectedPath));
-  instance.getInjectedPath = getInjectedPath;
-  instance.sassImporter = (url, prev) => {
-    const replacedPath = getInjectedPath(url, prev);
+  sassImporter(url, prev) {
+    const replacedPath = this.getInjectedPath(url, prev);
 
     return replacedPath ? { file: replacedPath } : null;
-  };
-
-  return instance;
+  }
 }
 
-module.exports = WepackDI;
+module.exports = WebpackDI;
