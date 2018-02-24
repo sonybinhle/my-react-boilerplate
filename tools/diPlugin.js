@@ -1,7 +1,7 @@
 const path = require('path');
+const WebpackDi = require('webpack-dependency-injector');
 
 const config = require('./config');
-const WebpackDi = require('./webpack-di');
 
 const VERSIONS = 'versions';
 const MANIFEST = 'manifest';
